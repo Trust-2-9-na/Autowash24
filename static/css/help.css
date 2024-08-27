@@ -1,0 +1,164 @@
+/* static/css/help.css */
+/* Basic reset and body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #00f, #0ff, #00f);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items between title and navigation */
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.5em;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: blue;
+}
+
+nav ul li a.active {
+    background-color: white;
+    color: black;
+}
+
+.sign-out {
+    margin-left: auto;
+}
+
+.signout-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.signout-btn:hover {
+    background-color: black; /* Change to your desired hover color */
+    color: white; /* Ensure text is readable on hover */
+}
+
+/* Centering the help container */
+.help-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.help-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+.help-container h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #333333;
+}
+
+.help-container h2 {
+    color: #333333;
+}
+
+.help-container h3 {
+    color: #007bff;
+}
+
+.help-container p {
+    color: #555555;
+}
+
+.contact-icons {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.contact-icons li {
+    position: relative;
+}
+
+.contact-icons a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.contact-icons span {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.contact-icons a:hover span {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contact-icons a:hover {
+    color: #007bff;
+}
+              

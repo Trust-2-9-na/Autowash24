@@ -1,0 +1,50 @@
+{% load static %}
+{% load socialaccount %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="login-header">Login</h2>
+        {% if form.errors %}
+            <div class="error-message" style="display: block;">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <form id="login-form" method="post" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="social-login">
+            <h3>Or login with</h3>
+            <a href="{% provider_login_url 'google' %}" class="social-button google-login">
+                <img src="{% static 'images/google-icon.jpeg' %}" alt="Google" class="social-icon">
+                <span>Login with Google</span>
+            </a>
+            <a href="{% provider_login_url 'microsoft' %}" class="social-button microsoft-login">
+                <img src="{% static 'images/microsoft-icon.jpeg' %}" alt="Microsoft" class="social-icon">
+                <span>Login with Microsoft</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for client-side validation
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            let username = document.querySelector('input[name="login"]').value;
+            let password = document.querySelector('input[name="password"]').value;
+            let errorMessage = document.querySelector('.error-message');
+            if (!username || !password) {
+                event.preventDefault();
+                errorMessage.innerText = 'Please enter both username and password.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

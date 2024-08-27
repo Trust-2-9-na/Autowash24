@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <link rel="stylesheet" href="{% static 'css/help.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>AUTOWASH</h1>
+
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}" class="login-btn">Login</a></li>
+                <li>  <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a> </li>
+           </ul>
+        </nav>
+    </header>
+
+    <div class="help-page">
+    <div class="help-container">
+        <h1>Help</h1>
+        <p>Welcome to the help section. Here you can find answers to frequently asked questions and get assistance with any issues you might be facing.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <h3>Question 1: How do I contact support?</h3>
+            <p>Answer: You can contact support via email at tnachokwe@gmail.com or call us on 0973487055.</p>
+
+            <h3>Question 2: How do I reset my password?</h3>
+            <p>Answer: To reset your password, go to the login page and click on "Forgot Password". Follow the instructions to reset your password.</p>
+
+            <h3>Question 3: How do I update my profile information?</h3>
+            <p>Answer: To update your profile information, go to your profile page and click on "Edit Profile". Make the necessary changes and save them.</p>
+        </div>
+
+        <h2>Contact Support</h2>
+        <p>If you need further assistance, please contact our support team:</p>
+        <ul class="contact-icons">
+            <li>
+                <a href="mailto:tnachokwe@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </li>
+            <li>
+                <a href="tel:+260973487055" title="Phone">
+                    <i class="fas fa-phone"></i>
+                    <span>Phone</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wa.me/260761220398" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/trust.nachokwe.568/" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status</title>
+    <link rel="stylesheet" href="{% static 'css/system_status.css' %}">
+</head>
+<body>
+    <header>
+        <h1>AUTOWASH</h1>
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'system-status' %}" class="{% if request.resolver_match.url_name == 'system-status' %}active{% endif %}">System Status</a></li>
+                <li><a href="{% url 'system_settings' %}" class="{% if request.resolver_match.url_name == 'system-settings' %}active{% endif %}">System Settings</a></li>
+                <li><a href="{% url 'sensor-data' %}" class="{% if request.resolver_match.url_name == 'sensor-data' %}active{% endif %}">Sensor Data</a></li>
+                <li><a href="{% url 'user-profile' %}" class="{% if request.resolver_match.url_name == 'user-profile' %}active{% endif %}">User Profile</a></li>
+            </ul>
+        </nav>
+        <!-- Sign Out Button -->
+        <div class="sign-out">
+            <a href="{% url 'signout' %}" class="signout-btn">Sign Out</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2>System Status</h2>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <!-- Table for system status -->
+        <div class="table-wrapper">
+            <table class="status-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Water Level (cm)</td>
+                        <td id="water_level">{{ system_status.water_level }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ultrasonic Distance (cm)</td>
+                        <td id="ultrasonic_distance_cm">{{ system_status.ultrasonic_distance_cm }}</td>
+                    </tr>
+                    <tr>
+                        <td>Operational State</td>
+                        <td id="operational_state">{{ system_status.operational_state }}</td>
+                    </tr>
+                    <tr>
+                        <td>Anomaly Detected</td>
+                        <td id="anomaly_detected">{{ system_status.anomaly_detected|yesno:"Yes,No" }}</td>
+                    </tr>
+                    <tr>
+                        <td>Anomaly Description</td>
+                        <td id="anomaly_description">{{ system_status.anomaly_description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="updateStatusButton" type="button">Update Status</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('updateStatusButton').addEventListener('click', function() {
+                fetch('/status-endpoint', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('water_level').textContent = data.water_level;
+                    document.getElementById('ultrasonic_distance_cm').textContent = data.ultrasonic_distance_cm;
+                    document.getElementById('operational_state').textContent = data.operational_state;
+                    document.getElementById('anomaly_detected').textContent = data.anomaly_detected ? "Yes" : "No";
+                    document.getElementById('anomaly_description').textContent = data.anomaly_description || "None";
+                })
+                .catch(error => console.error('Error fetching status data:', error));
+            });
+        });
+    </script>
+</body>
+</html>
+              

@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #00f, #0ff, #00f); /* Gradient background */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.header-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white; /* Updated to ensure visibility on gradient background */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007BFF;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.signout-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.signout-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.banner {
+    text-align: center;
+    padding: 50px;
+}
+
+.main-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin-top: auto;
+}
+
+.btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid #007BFF;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #007BFF;
+    color: white;
+}

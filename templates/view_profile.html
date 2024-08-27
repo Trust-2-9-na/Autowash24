@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <link rel="stylesheet" href="{% static 'css/view_profile.css' %}">
+</head>
+<body>
+    <header>
+        <h1>AUTOWASH</h1>
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'system-status' %}" class="{% if request.resolver_match.url_name == 'system-status' %}active{% endif %}">System Status</a></li>
+                <li><a href="{% url 'system_settings' %}" class="{% if request.resolver_match.url_name == 'system-settings' %}active{% endif %}">System Settings</a></li>
+                <li><a href="{% url 'sensor-data' %}" class="{% if request.resolver_match.url_name == 'sensor-data' %}active{% endif %}">Sensor Data</a></li>
+                <li><a href="{% url 'user-profile' %}" class="{% if request.resolver_match.url_name == 'user-profile' %}active{% endif %}">User Profile</a></li>
+            </ul>
+        </nav>
+        <!-- Sign Out Button -->
+        <div class="sign-out">
+            <a href="{% url 'signout' %}" class="signout-btn">Sign Out</a>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Profile</h1>
+        <div class="profile-details">
+            <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
+            <p><strong>Email:</strong> {{ user_profile.email }}</p>
+            <p><strong>First Name:</strong> {{ user_profile.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user_profile.last_name }}</p>
+            <p><strong>Address:</strong> {{ user_profile.address }}</p>
+            <p><strong>Phone Number:</strong> {{ user_profile.phone_number }}</p>
+            <p><strong>Profile Picture:</strong></p>
+            {% if user_profile.profile_picture %}
+                <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+            {% else %}
+                <p>No profile picture</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'user-profile' %}" class="btn">Edit Profile</a>
+    </div>
+</body>
+</html>

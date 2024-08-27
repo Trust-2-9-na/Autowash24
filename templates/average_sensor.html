@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Sensor Data</title>
+    <link rel="stylesheet" href="{% static 'css/average_sensor.css' %}">
+</head>
+<body>
+    <header>
+        <h1>AUTOWASH</h1>
+
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'sensor-charts' %}" class="{% if request.resolver_match.url_name == 'sensor-charts' %}active{% endif %}">View Sensor Charts</a></li>
+                <li><a href="{% url 'average-sensor' %}">View Average Sensor Data</a></li>
+                <li><a href="{% url 'sensor-data' %}">Sensor Data</a></li>
+            </ul>
+        </nav>
+        <div class="sign-out">
+            <a href="{% url 'signout' %}" class="signout-btn">Sign Out</a>
+        </div>
+        
+    </header>
+    <div class="container">
+        <h2>Average Sensor Data (Past Hour)</h2>
+        <div class="status-container">
+            <label for="avg_hands_washed">Average Hands Washed:</label>
+            <span id="avg_hands_washed">{{ avg_hands_washed|floatformat:1 }}</span>
+        </div>
+        <div class="status-container">
+            <label for="avg_water_dispensed">Average Water Dispensed (ml):</label>
+            <span id="avg_water_dispensed">{{ avg_water_dispensed|floatformat:1 }}</span>
+        </div>
+    </div>
+</body>
+</html>

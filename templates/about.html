@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <h1>AUTOWASH</h1>
+
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'system-status' %}" class="{% if request.resolver_match.url_name == 'system-status' %}active{% endif %}">System Status</a></li>
+                <li><a href="{% url 'system_settings' %}" class="{% if request.resolver_match.url_name == 'system-settings' %}active{% endif %}">System Settings</a></li>
+                <li><a href="{% url 'sensor-data' %}" class="{% if request.resolver_match.url_name == 'sensor-data' %}active{% endif %}">Sensor Data</a></li>
+                <li><a href="{% url 'user-profile' %}" class="{% if request.resolver_match.url_name == 'user-profile' %}active{% endif %}">User Profile</a></li>
+            </ul>
+        </nav>
+        <div class="sign-out">
+            <a href="{% url 'signout' %}" class="signout-btn">Sign Out</a>
+        </div>
+    </header>
+ <div class="about-page">
+    <div class="about-container">
+        <h1>About AutoWash</h1>
+        <p>AutoWash is an innovative solution designed to automate the process of hand washing. Our system ensures optimal water usage, efficient hand washing, and hygiene.</p>
+        
+        <h2>Our Mission</h2>
+        <p>To provide an automated, efficient, and hygienic hand washing experience that conserves water and promotes health and safety.</p>
+        
+        <h2>Our Vision</h2>
+        <p>To be the leading provider of automated hand washing systems globally, ensuring clean hands for everyone, everywhere.</p>
+        
+        <h2>Contact Us</h2>
+        <ul class="contact-icons">
+            <li>
+                <a href="mailto:tnachokwe@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </li>
+            <li>
+                <a href="tel:+260973487055" title="Phone">
+                    <i class="fas fa-phone"></i>
+                    <span>Phone</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wa.me/260761220398" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/trust.nachokwe.568" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

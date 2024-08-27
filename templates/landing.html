@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="{% static 'images/icons/autowash_icon.png' %}" alt="Auto Wash Icon" class="icon">
+            <span class="header-title">AUTOWASH</span>
+        </div>
+        <div class="header-center">
+            <!-- Top navigation bar -->
+            <nav class="top-nav">
+                <a href="{% url 'help_land' %}" class="btn">Help</a>
+                <a href="{% url 'contact_land' %}" class="btn">Contact Us</a>
+                <a href="{% url 'about_land' %}" class="btn">About</a>
+            </nav>
+    </header>
+
+
+    <div class="wrapper">
+        <div class="container">
+            <!-- Welcome back message -->
+            <p id="welcome-back-msg" class="hidden">Welcome back!</p>
+            <h1>Welcome BacK!</h1>
+            <div class="buttons">
+                <a href="{% url 'login' %}" class="login-btn">Login</a>
+                <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+                <a href="{% url 'stay_logged_out' %}" class="logout-btn">Stay Logged Out</a>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-buttons">
+             
+            </div>
+        </footer>
+    <script>
+        // Check if the welcome back message should be displayed
+        window.addEventListener('DOMContentLoaded', function () {
+            // Check if the session storage contains the visited flag
+            if (sessionStorage.getItem('visitedWebsite')) {
+                // Display the welcome back message
+                document.getElementById('welcome-back-msg').classList.remove('hidden');
+                // Remove the visited flag from session storage
+                sessionStorage.removeItem('visitedWebsite');
+            }
+        });
+    </script>
+</body>
+</html>
+

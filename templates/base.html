@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AutoWash{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Automatic Hand Washing/h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'system_settings' %}">System Settings</a></li>
+                <li><a href="{% url 'handwashing_events' %}">Handwashing Events</a></li>
+                <li><a href="{% url 'system_status' %}">System Status</a></li>
+                <li><a href="{% url 'user_profile' %}">User Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 AutoWash. All rights reserved.</p>
+    </footer>
+</body>
+</html>

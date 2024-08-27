@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
+    width: 90%;
+    height: 50px;
+    background: linear-gradient(to right, #00f, #0ff, #00f, #0ff);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items between title and sign-out button */
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn {
+    padding: 10px 15px;
+    background-color: #007bff;                
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button.btn:hover {
+    width: 90%;
+    height: 50px;
+    background: linear-gradient(to right, #0ff, #00f, #0ff, #00f);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items between title and sign-out button */
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+}
+
+.social-login {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.social-button:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.social-button span {
+    font-size: 16px;
+}

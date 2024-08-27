@@ -1,0 +1,195 @@
+/* Basic reset and body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background for better contrast */
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #00f, #0ff, #00f); /* Blue gradient */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: flex-start; /* Align items to the start (left) */
+    position: relative; /* Position header relative for text alignment */
+}
+
+header h1 {
+    font-size: 1.5em;
+    color: white;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Absolutely position to place it in the corner */
+    top: 10px; /* Adjust from the top */
+    left: 20px; /* Adjust from the left */
+}
+
+/* Navigation bar styling */
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes nav to the right of the header */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: blue;
+}
+
+nav ul li a.active {
+    background-color: white;
+    color: black;
+}
+/* Profile Picture styling */
+/* Profile Picture styling */
+.profile-picture {
+    width: 150px;  /* Set the width of the image container */
+    height: 150px; /* Set the height of the image container */
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+    border-radius: 8px; /* Optional: rounded corners for a softer look */
+    display: block; /* Ensures the picture is a block element */
+    margin: 0 auto; /* Centers the picture horizontally */
+}
+
+
+
+/* Sign Out button styling */
+.sign-out {
+    margin-left: auto;
+}
+
+.signout-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.signout-btn:hover {
+    background-color: black; /* Change to your desired hover color */
+    color: white; /* Ensure text is readable on hover */
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff; /* White background for the form container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Existing styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+form input,
+form select,
+form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="file"] {
+    padding: 5px;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF; /* Blue color for the save button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button-container .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF; /* Blue color for the view profile button */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-container .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Messages styling */
+.messages {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.messages li {
+    margin: 5px 0;
+    color: #dc3545;
+}
